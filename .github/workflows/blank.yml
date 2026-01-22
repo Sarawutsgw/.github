@@ -1,9 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-const clientID = "Acuy17p2LcOf9RMv8SUVBb3wic3FPEP2NHFFqfSCBRFrNFdmbC1JQ0w8HIKRxW3RDy2R8QTL93eptFYl";
-const merchantIDOrEmail = "identity_seller@paypal.com";
-const auth1 = Buffer.from('{"alg":"none"}').toString("base64");
-const auth2 = Buffer.from(`{"iss":${clientID},"payer_id":${merchantIDOrEmail}}`).toString("base64");
-const authAssertionHeader = `${auth1}.${auth2}.`;
+ 
 name: CI
 
 # Controls when the workflow will run
@@ -38,3 +34,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+       
+       #use the cart information passed from the front-end to calculate the purchase unit details
+  console.log(
+    "shopping cart information passed from the frontend createOrder() callback:",
+    cart,
